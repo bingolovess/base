@@ -7,7 +7,7 @@
 
 ###  一、dialog
 
-![dialog](D:\as_ws\Base\img\dialog.gif)
+![dialog](img/dialog.gif)
 
 ```
  //ActionSheet
