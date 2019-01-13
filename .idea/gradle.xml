@@ -10,6 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/dialog" />
+            <option value="$PROJECT_DIR$/notifyutil" />
+            <option value="$PROJECT_DIR$/tablayout" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

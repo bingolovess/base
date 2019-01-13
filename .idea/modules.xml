@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/Base.iml" filepath="$PROJECT_DIR$/Base.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialog/dialog.iml" filepath="$PROJECT_DIR$/dialog/dialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/notifyutil/notifyutil.iml" filepath="$PROJECT_DIR$/notifyutil/notifyutil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tablayout/tablayout.iml" filepath="$PROJECT_DIR$/tablayout/tablayout.iml" />
     </modules>
   </component>
 </project>

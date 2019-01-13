@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StatusBarHeightView">
+        <attr name="use_type" format="integer">
+            <enum name="use_height" value="0" />
+            <enum name="use_padding_top" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="lib_pub_DSLayout">
+        <attr name="lib_pub_dsl_layout" format="reference" />
+        <attr name="lib_pub_dsl_adjustHeightT" format="dimension" />
+        <attr name="lib_pub_dsl_adjustHeightB" format="dimension" />
+        <attr name="lib_pub_dsl_emptyDrawable" format="reference" />
+        <attr name="lib_pub_dsl_netErroDrawable" format="reference" />
+        <attr name="lib_pub_dsl_ceterType">
+            <enum name="main" value="1" />
+            <enum name="local" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

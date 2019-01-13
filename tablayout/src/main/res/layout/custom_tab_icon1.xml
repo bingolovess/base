@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/custom_tab"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_arrow_back_24dp"
+        android:scaleType="center" />
+
+    <TextView
+        android:id="@+id/custom_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Item"
+        tools:text="我是标题" />
+</LinearLayout>
+
