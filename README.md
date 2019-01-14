@@ -335,7 +335,7 @@ SegementView
                 app:lib_pub_segementv_titles="@string/module_ui_labelss" />
 ```
 
-####九、CellView
+####十、CellView
 
 ![](img/cellView.png) ![](img/switchButton.png)
 
@@ -365,5 +365,77 @@ SegementView
     
 ```
 
+#### 十一、SlideLayout
 
+![](img/slideLayout.gif)
+
+```
+   <com.bingo.ui.SlideLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <com.bingo.ui.CellView
+            android:id="@+id/testCrash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:type_name="姓名"
+            app:type_value="张三" />
+        <!--slide view-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_stick"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="#C7C7CD"
+                android:gravity="center"
+                android:text="STICK"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="#FF3A30"
+                android:gravity="center"
+                android:text="DELETE"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </com.bingo.ui.SlideLayout>
+```
+
+#### 十二、EmptyLayout
+
+![](img/emptyLayout.gif)
+
+```
+    <com.bingo.ui.EmptyLayout
+        android:id="@+id/emptyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lib_pub_content_layout="@layout/layout_main"/>
+    //代码
+      EmptyLayout emptyLayout = ViewHelper.findView(this,R.id.emptyLayout);
+      //设置无网络
+      emptyLayout.setState(EmptyLayout.STATE_NET_ERROR);
+      emptyLayout.setOnRetryClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO
+            }
+        });
+       //设置无数据
+        emptyLayout.setState(EmptyLayout.STATE_EMPTY);
+        //设置显示数据视图
+        emptyLayout.setState(EmptyLayout.STATE_CONTENT);
+```
+
+#### 十三、
 

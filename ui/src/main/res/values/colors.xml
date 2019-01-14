@@ -41,4 +41,6 @@
     <color name="default_ui_type_text">#cc000000</color>
     <color name="default_ui_value_text">#66000000</color>
     <color name="default_ui_icon_text">#1D7DF6</color>
+    <!--emptyLayout-->
+    <color name="lib_pub_loading">#008577</color>
 </resources>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--空视图-->
-    <declare-styleable name="lib_pub_DSLayout">
-        <attr name="lib_pub_dsl_layout" format="reference" />
-        <attr name="lib_pub_dsl_adjustHeightT" format="dimension" />
-        <attr name="lib_pub_dsl_adjustHeightB" format="dimension" />
-        <attr name="lib_pub_dsl_emptyDrawable" format="reference" />
-        <attr name="lib_pub_dsl_netErroDrawable" format="reference" />
-        <attr name="lib_pub_dsl_ceterType">
+    <declare-styleable name="EmptyLayout">
+        <attr name="lib_pub_content_layout" format="reference" />
+        <attr name="lib_pub_adjustHeightT" format="dimension" />
+        <attr name="lib_pub_adjustHeightB" format="dimension" />
+        <attr name="lib_pub_emptyDrawable" format="reference" />
+        <attr name="lib_pub_netErroDrawable" format="reference" />
+        <attr name="lib_pub_ceterType">
             <enum name="main" value="1" />
             <enum name="local" value="2" />
         </attr>
@@ -141,5 +141,11 @@
         <attr name="right_image" format="reference" />
         <attr name="bottom_line" format="boolean" />
         <attr name="default_switch" format="boolean" />
+    </declare-styleable>
+    <!--slideLayout-->
+    <declare-styleable name="SlideLayout">
+        <attr name="sl_slideSlop" format="dimension" />
+        <attr name="sl_duration" format="integer" />
+        <attr name="sl_enable" format="boolean" />
     </declare-styleable>
 </resources>
