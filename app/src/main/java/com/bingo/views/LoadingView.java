@@ -15,7 +15,6 @@ import com.bingo.study.R;
 import java.lang.ref.WeakReference;
 
 /**
- * LoadingDialog
  * Created by Administrator on 2016/8/27.
  */
 public class LoadingView extends View {

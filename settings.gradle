@@ -1,1 +1,1 @@
-include ':app', ':dialog', ':notifyutil', ':tablayout'
+include ':app', ':dialog', ':notifyutil', ':tablayout', ':floatview', ':ui', ':gesture', ':refresh-layout', ':crash'

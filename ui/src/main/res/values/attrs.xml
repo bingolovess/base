@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--空视图-->
+    <declare-styleable name="lib_pub_DSLayout">
+        <attr name="lib_pub_dsl_layout" format="reference" />
+        <attr name="lib_pub_dsl_adjustHeightT" format="dimension" />
+        <attr name="lib_pub_dsl_adjustHeightB" format="dimension" />
+        <attr name="lib_pub_dsl_emptyDrawable" format="reference" />
+        <attr name="lib_pub_dsl_netErroDrawable" format="reference" />
+        <attr name="lib_pub_dsl_ceterType">
+            <enum name="main" value="1" />
+            <enum name="local" value="2" />
+        </attr>
+    </declare-styleable>
+    <!--可滚动的tab-->
+    <declare-styleable name="lib_pub_ScrollTab">
+        <attr name="lib_pub_stab_type">
+            <enum name="view" value="0" />
+            <enum name="view_group" value="1" />
+        </attr>
+        <attr name="lib_pub_stab_titles" format="string" />
+        <attr name="lib_pub_stab_avag" format="boolean" />
+        <attr name="lib_pub_stab_padding" format="dimension" />
+        <attr name="lib_pub_stab_indicatorType">
+            <enum name="trend" value="0" />
+            <enum name="translation" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <attr name="lib_pub_stab_indicatorColor" format="color" />
+        <attr name="lib_pub_stab_indicatorWidth" format="dimension" />
+        <attr name="lib_pub_stab_indicatorWeight" format="dimension" />
+        <attr name="lib_pub_stab_indicatorRadius" format="dimension" />
+        <attr name="lib_pub_stab_indicatorPadding" format="dimension" />
+        <attr name="lib_pub_stab_duration" format="integer" />
+    </declare-styleable>
+    <!--分段视图-->
+    <declare-styleable name="lib_pub_SegementView">
+        <attr name="lib_pub_segementv_titles" format="string" />
+        <attr name="lib_pub_segementv_colorMain" format="color" />
+        <attr name="lib_pub_segementv_colorSub" format="color" />
+        <attr name="lib_pub_segementv_textSize" format="dimension" />
+        <attr name="lib_pub_segementv_radius" format="dimension" />
+        <attr name="lib_pub_segementv_divideWidth" format="dimension" />
+        <attr name="lib_pub_segementv_borderWidth" format="dimension" />
+    </declare-styleable>
+    <!--角标-->
+    <declare-styleable name="lib_pub_BadgeView">
+        <attr name="lib_pub_badgev_color" format="color" />
+        <attr name="lib_pub_badgev_circle" format="boolean" />
+        <attr name="lib_pub_badgev_radius" format="dimension" />
+        <attr name="lib_pub_badgev_max" format="integer" />
+    </declare-styleable>
+    <!--NoticeBar-->
+    <declare-styleable name="lib_pub_NoticeLayout">
+        <attr name="lib_pub_noticel_layout" format="reference" />
+        <attr name="lib_pub_noticel_icon" format="reference" />
+        <attr name="lib_pub_noticel_text" format="string" />
+        <attr name="lib_pub_noticel_button" format="string" />
+        <attr name="lib_pub_noticel_gotoVisibility">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="lib_pub_noticel_exitVisibility">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="lib_pub_ReplyBgView">
+        <attr name="lib_pub_replybv_gravity">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="lib_pub_replybv_color" format="color" />
+        <attr name="lib_pub_replybv_radius" format="dimension" />
+        <attr name="lib_pub_replybv_offset" format="dimension" />
+        <attr name="lib_pub_replybv_trgWidth" format="dimension" />
+        <attr name="lib_pub_replybv_trgHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="lib_pub_RoundedImageView">
+        <attr name="lib_pub_riv_corner_radius" format="dimension" />
+        <attr name="lib_pub_riv_corner_radius_top_left" format="dimension" />
+        <attr name="lib_pub_riv_corner_radius_top_right" format="dimension" />
+        <attr name="lib_pub_riv_corner_radius_bottom_left" format="dimension" />
+        <attr name="lib_pub_riv_corner_radius_bottom_right" format="dimension" />
+        <attr name="lib_pub_riv_border_width" format="dimension" />
+        <attr name="lib_pub_riv_border_color" format="color" />
+        <attr name="lib_pub_riv_mutate_background" format="boolean" />
+        <attr name="lib_pub_riv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="lib_pub_riv_tile_mode">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="lib_pub_riv_tile_mode_x">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="lib_pub_riv_tile_mode_y">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!--switchButton-->
+    <declare-styleable name="SwitchButton">
+        <attr name="sb_shadow_radius" format="reference|dimension" />
+        <attr name="sb_shadow_offset" format="reference|dimension" />
+        <attr name="sb_shadow_color" format="reference|color" />
+        <attr name="sb_uncheck_color" format="reference|color" />
+        <attr name="sb_checked_color" format="reference|color" />
+
+        <attr name="sb_border_width" format="reference|dimension" />
+        <attr name="sb_checkline_color" format="reference|color" />
+        <attr name="sb_checkline_width" format="reference|dimension" />
+        <attr name="sb_uncheckcircle_color" format="reference|color" />
+        <attr name="sb_uncheckcircle_width" format="reference|dimension" />
+        <attr name="sb_uncheckcircle_radius" format="reference|dimension" />
+
+        <attr name="sb_checked" format="reference|boolean" />
+        <attr name="sb_shadow_effect" format="reference|boolean" />
+        <attr name="sb_effect_duration" format="reference|integer" />
+        <attr name="sb_button_color" format="reference|color" />
+        <attr name="sb_show_indicator" format="reference|boolean" />
+        <attr name="sb_background" format="reference|color" />
+        <attr name="sb_enable_effect" format="reference|boolean" />
+    </declare-styleable>
+    <!--自定义ui item 属性-->
+    <declare-styleable name="default_ui">
+        <attr name="backgroud" format="reference" />
+        <attr name="type_name" format="string" />
+        <attr name="type_value" format="string" />
+        <attr name="left_image" format="reference" />
+        <attr name="right_image" format="reference" />
+        <attr name="bottom_line" format="boolean" />
+        <attr name="default_switch" format="boolean" />
+    </declare-styleable>
+</resources>
