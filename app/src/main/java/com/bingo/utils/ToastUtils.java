@@ -1,6 +1,7 @@
 package com.bingo.utils;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,17 @@ import com.bingo.study.R;
  */
 
 public class ToastUtils {
-    public static void show(Context ctx, String message) {
-        showMessage(ctx, message);
+    private static Handler mainThreadhandler;
+    public static void show(final Context ctx, final String message) {
+        mainThreadhandler = new Handler();
+        mainThreadhandler.post(new Runnable() {
+            @Override
+            public void run() {
+                showMessage(ctx, message);
+            }
+        });
     }
+
     /**
      * 将Toast封装在一个方法中，在其它地方使用时直接输入要弹出的内容即可
      */
@@ -34,7 +43,7 @@ public class ToastUtils {
         WindowManager wm = (WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE);
         int height = wm.getDefaultDisplay().getHeight();
         //Toast的Y坐标是屏幕高度的2/3，不会出现不适配的问题
-        toast.setGravity(Gravity.TOP, 0, height / 4 *3);
+        toast.setGravity(Gravity.TOP, 0, height / 4 * 3);
         toast.setDuration(Toast.LENGTH_SHORT);//setDuration方法：设置持续时间，以毫秒为单位。该方法是设置补间动画时间长度的主要方法
         toast.setView(view); //添加视图文件
         toast.show();

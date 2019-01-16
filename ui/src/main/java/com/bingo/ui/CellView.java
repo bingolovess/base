@@ -3,10 +3,14 @@ package com.bingo.ui;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,17 +19,18 @@ import android.widget.TextView;
 /**
  * Created by bingo on 2019/1/7.
  * Time:2019/1/7
+ * TODO 布局中引入，不可以直接使用Butterknife @Click(R.id.xxx)的形式处理点击事件，待优化
  */
 
 public class CellView extends LinearLayout {
-
     private String typeName, typeValue;
-    private Drawable backgroudDrawable, leftImageDrawable, rightImageDrawable;
-    private boolean hasBottomLine,defaultSwitch;
+    private Drawable leftImageDrawable, rightImageDrawable;
+    private boolean hasBottomLine, defaultSwitch;
     private ImageView leftImageView, rightImageView;
     private TextView typeNameTv, typeValueTv, defaultIconView;
-    private View itemView, line;
+    private View cellView, line;
     private SwitchButton switchButton;
+    private int defaultNormal, defaultSelect;
 
     public CellView(Context context) {
         this(context, null);
@@ -41,8 +46,9 @@ public class CellView extends LinearLayout {
         typeName = typedArray.getString(R.styleable.default_ui_type_name);
         typeValue = typedArray.getString(R.styleable.default_ui_type_value);
         hasBottomLine = typedArray.getBoolean(R.styleable.default_ui_bottom_line, false);
-        defaultSwitch = typedArray.getBoolean(R.styleable.default_ui_default_switch,false);
-        backgroudDrawable = typedArray.getDrawable(R.styleable.default_ui_backgroud);
+        defaultSwitch = typedArray.getBoolean(R.styleable.default_ui_default_switch, false);
+        defaultNormal = typedArray.getColor(R.styleable.default_ui_default_normal, -1);
+        defaultSelect = typedArray.getColor(R.styleable.default_ui_default_select, -1);
         leftImageDrawable = typedArray.getDrawable(R.styleable.default_ui_left_image);
         rightImageDrawable = typedArray.getDrawable(R.styleable.default_ui_right_image);
         typedArray.recycle();
@@ -51,7 +57,7 @@ public class CellView extends LinearLayout {
 
     private void init(Context context) {
         View rootView = LayoutInflater.from(context).inflate(R.layout.layout_cell_item, this);
-        itemView = rootView.findViewById(R.id.default_item);
+        cellView = rootView.findViewById(R.id.default_item);
         leftImageView = rootView.findViewById(R.id.default_left_iv);
         rightImageView = rootView.findViewById(R.id.default_right_iv);
         typeNameTv = rootView.findViewById(R.id.default_type_name);
@@ -76,12 +82,27 @@ public class CellView extends LinearLayout {
             typeValueTv.setLayoutParams(layoutParams);*/
             switchButton.setVisibility(GONE);
         }
-        if(defaultSwitch){
+        if (defaultSwitch) {
             rightImageView.setVisibility(GONE);
             switchButton.setVisibility(VISIBLE);
         }
-        if (backgroudDrawable != null) {
-            itemView.setBackground(backgroudDrawable);
+        if (defaultNormal != defaultSelect) {
+            cellView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_UP:
+                            cellView.setBackgroundColor(defaultNormal);
+                            break;
+                        case MotionEvent.ACTION_DOWN:
+                            cellView.setBackgroundColor(defaultSelect);
+                            break;
+                        default:
+                            break;
+                    }
+                    return false;//不拦截其他事件
+                }
+            });
         }
         if (!TextUtils.isEmpty(typeName)) {
             typeNameTv.setText(typeName);
@@ -89,6 +110,21 @@ public class CellView extends LinearLayout {
         if (!TextUtils.isEmpty(typeValue)) {
             typeValueTv.setText(typeValue);
         }
+    }
+
+    /**
+     * 动态生成状态选择器
+     */
+    public Drawable creatPressedSelector(Context context, int pressed, int normal) {
+        StateListDrawable drawable = new StateListDrawable();
+        drawable.addState(new int[]{android.R.attr.state_pressed}, ContextCompat.getDrawable(context, pressed));//  状态  , 设置按下的图片
+        drawable.addState(new int[]{}, ContextCompat.getDrawable(context, normal));//默认状态,默认状态下的图片
+        //根据SDK版本设置状态选择器过度动画/渐变选择器/渐变动画
+        if (Build.VERSION.SDK_INT > 10) {
+            drawable.setEnterFadeDuration(500);
+            drawable.setExitFadeDuration(500);
+        }
+        return drawable;
     }
 
     /**
@@ -119,8 +155,8 @@ public class CellView extends LinearLayout {
      * @param resId
      */
     public void setBackgroudDrawable(int resId) {
-        if (itemView != null) {
-            itemView.setBackgroundResource(resId);
+        if (cellView != null) {
+            cellView.setBackgroundResource(resId);
         }
     }
 
@@ -130,8 +166,8 @@ public class CellView extends LinearLayout {
      * @param drawable
      */
     public void setBackgroudDrawable(Drawable drawable) {
-        if (itemView != null) {
-            itemView.setBackground(drawable);
+        if (cellView != null) {
+            cellView.setBackground(drawable);
         }
     }
 
@@ -149,7 +185,19 @@ public class CellView extends LinearLayout {
             defaultIconView.setText(text);
         }
     }
-    public SwitchButton getSwitchButton(){
+
+    public SwitchButton getSwitchButton() {
         return switchButton;
+    }
+
+    /**
+     * 点击事件
+     *
+     * @param lisenter
+     */
+    public void setOnItemClickListener(OnClickListener lisenter) {
+        if (cellView != null) {
+            cellView.setOnClickListener(lisenter);
+        }
     }
 }

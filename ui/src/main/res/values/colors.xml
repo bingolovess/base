@@ -37,7 +37,8 @@
     <color name="lib_pub_color_dialog_bg">#AAC1C1C1</color>
 
     <!--cellView-->
-    <color name="default_ui_cell_bg">#FFFFFF</color>
+    <color name="default_ui_cell_select_bg">#E9E9E9</color>
+    <color name="default_ui_cell_normal_bg">#FFFFFF</color>
     <color name="default_ui_type_text">#cc000000</color>
     <color name="default_ui_value_text">#66000000</color>
     <color name="default_ui_icon_text">#1D7DF6</color>

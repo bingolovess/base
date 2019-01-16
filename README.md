@@ -354,6 +354,10 @@ SegementView
     type_value:类型值
     bottom_line:是否有下边线
     default_switch：是否有switchButton
+    default_normal:普通样式（抬起）的背景颜色
+    default_select：按下的背景颜色
+    
+  default_normal和default_select都设置了并且样式不一样才起效，背景的选择器效果
  //代码设置SwithButton的监听
  CellView cell = findViewById(R.id.auth_phoneNum)
  cell.getSwitchButton().setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
@@ -437,5 +441,223 @@ SegementView
         emptyLayout.setState(EmptyLayout.STATE_CONTENT);
 ```
 
-#### 十三、
+#### 十三、SpringView 
 
+![](img/SpringView.gif)
+
+```
+可回弹组件
+代码参考:
+ <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fcfcfc">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#2d3134"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="页面由腾讯QQ提供"
+                android:textColor="#7d7d7d"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="https://github.com/bingolovess/base\n提供技术支持"
+                android:textColor="#7d7d7d"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <com.bingo.ui.SpringView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lib_pub_spring_enable="true"
+            app:lib_pub_spring_gravity="top|bottom">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+        </com.bingo.ui.SpringView>
+    </FrameLayout>
+```
+
+#### 十四、Dialog （UI库里的）
+
+![](img/dialog2.gif)
+
+```
+ private void getLoading() {
+        final AlertDialog loadingDialog = AlertDialogFactory.createFactory(this).getLoadingDialog();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismiss();
+            }
+        }, 2000);
+    }
+
+    private void getAlertDialog() {
+        AlertDialogFactory.createFactory(this).getAlertDialog("标题",
+                "内容",
+                "OK", null,
+                new AlertDialogFactory.OnClickListener() {
+                    @Override
+                    public void onClick(AlertDialog dlg, View v) {
+
+                    }
+                }, null);
+    }
+
+    private void getEditDialog() {
+        AlertDialogFactory.createFactory(this).getEditDialog("EditText"
+                , "", new EditDialog.OnEditListener() {
+                    @Override
+                    public void onSubmit(Dialog dlg, String content) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dlg) {
+
+                    }
+                });
+    }
+
+    private void getAlertSubDialog() {
+        AlertDialogFactory.createFactory(this).getAlertSubDialog("标题",
+                "内容",
+                "提示tip",
+                true, new AlertSubDialog.OnCheckListener() {
+                    @Override
+                    public void onSubmit(Dialog dlg, boolean isChecked) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dlg) {
+
+                    }
+                });
+    }
+
+    private void getInfoDialog() {
+        AlertDialogFactory.createFactory(this).getInfoDialog("标题",
+                Arrays.asList(new InfoDialog.Bean("小标题1", "" + 1111111),
+                        new InfoDialog.Bean("小标题2", "" + 2222222),
+                        new InfoDialog.Bean("小标题3", "" + 3333333),
+                        new InfoDialog.Bean("小标题4", "" + 4444444),
+                        new InfoDialog.Bean("小标题5", "" + 5555555)));
+    }
+
+    private void getOptionDialog() {
+        AlertDialogFactory.createFactory(this).getOperationDialog("标题",
+                Arrays.asList(new OperationDialog.Bean("item1", R.color.lib_pub_color_main, false),
+                        new OperationDialog.Bean("item2", R.color.lib_pub_color_main, false)),
+                new AbsSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick(Dialog dlg, int position, Object item) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dlg) {
+
+                    }
+                });
+    }
+
+```
+
+![](img/sheetDialog.gif)
+```
+ private void getBottomVerDialog() {
+        AlertDialogFactory.createFactory(this).getBottomVerDialog("标题",
+                Arrays.asList(new BottomVerSheetDialog.Bean("item1", R.color.lib_pub_color_text_main, false),
+                        new BottomVerSheetDialog.Bean("item2", R.color.lib_pub_color_text_main, false),
+                        new BottomVerSheetDialog.Bean("item3", R.color.lib_pub_color_text_main, false),
+                        new BottomVerSheetDialog.Bean("item4", R.color.lib_pub_color_red, false),
+                        new BottomVerSheetDialog.Bean("item5", R.color.lib_pub_color_text_hint, false)),
+                new AbsSheetDialog.OnItemClickListener<BottomVerSheetDialog.Bean>() {
+                    @Override
+                    public void onClick(Dialog dlg, int position, BottomVerSheetDialog.Bean item) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dlg) {
+
+                    }
+                });
+    }
+
+    private void getBottomVerDialogWithCheck() {
+        AlertDialogFactory.createFactory(this).getBottomVerDialog("标题",
+                Arrays.asList(new BottomVerSheetDialog.Bean("item1", R.color.lib_pub_color_text_main, true),
+                        new BottomVerSheetDialog.Bean("item2", R.color.lib_pub_color_text_main, false),
+                        new BottomVerSheetDialog.Bean("item3", R.color.lib_pub_color_text_main, false),
+                        new BottomVerSheetDialog.Bean("item4", R.color.lib_pub_color_red, false),
+                        new BottomVerSheetDialog.Bean("item5", R.color.lib_pub_color_text_hint, false)),
+                new AbsSheetDialog.OnItemClickListener<BottomVerSheetDialog.Bean>() {
+                    @Override
+                    public void onClick(Dialog dlg, int position, BottomVerSheetDialog.Bean item) {
+                        item.isChecked = true;
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dlg) {
+
+                    }
+                });
+    }
+
+    private void getBottomHorDialog() {
+        AlertDialogFactory.createFactory(this).getBottomHorDialog("分享",
+                Arrays.asList(new BottomHorSheetDialog.Bean("QQ", R.drawable.lib_pub_ic_btb_icon),
+                        new BottomHorSheetDialog.Bean("微信", R.drawable.lib_pub_ic_btb_icon),
+                        new BottomHorSheetDialog.Bean("新浪", R.drawable.lib_pub_ic_btb_icon),
+                        new BottomHorSheetDialog.Bean("微博", R.drawable.lib_pub_ic_btb_icon),
+                        new BottomHorSheetDialog.Bean("短信", R.drawable.lib_pub_ic_btb_icon)),
+                new AbsSheetDialog.OnItemClickListener<BottomHorSheetDialog.Bean>() {
+                    @Override
+                    public void onClick(Dialog dlg, int position, BottomHorSheetDialog.Bean item) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Dialog dlg) {
+
+                    }
+                });
+    }
+
+    private void getBottomShareDialog() {
+        AlertDialogFactory.createFactory(this)
+                .getBottomShareDialog("分享",
+                        Arrays.asList(new BottomShareSheetDialog.Bean("链接地址", "https://www.baidu.com/link?url=eZH1yw2u1h-CNrpm7Q3jD_EfVnUxwUuBHlTGhLlA_KfhwtG0TGSl4a7kPsJNMqE8&wd=&eqid=f50ccdfc00009400000000065b232f14"),
+                                new BottomShareSheetDialog.Bean("提取密码", "3854", false)),
+                        new BottomShareSheetDialog.SwithCheckListener() {
+                            @Override
+                            public void onCheckedChanged(boolean checked, BottomShareSheetDialog dialog) {
+                                if (checked) {
+                                    ToastUtils.show(ViewTestActivity.this, "打开");
+                                } else {
+                                    ToastUtils.show(ViewTestActivity.this, "关闭");
+                                }
+                                dialog.dismiss();
+                            }
+                        }
+                );
+    }
+```

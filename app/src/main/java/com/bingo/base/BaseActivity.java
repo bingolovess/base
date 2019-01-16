@@ -28,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Bundle saveState;
     protected ToolbarUtils mToolbarUtils;
     private Unbinder mUnbinder;
-    private static Handler mainThreadhandler = new Handler();
+    //private static Handler mainThreadhandler = new Handler();
     public static ACache aCache;
 
     protected void initData() {
@@ -99,12 +99,12 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param msg
      */
     protected void Toasting(final String msg) {
-        mainThreadhandler.post(new Runnable() {
+        /*mainThreadhandler.post(new Runnable() {
             @Override
             public void run() {
                 ToastUtils.show(mContext,msg);
             }
-        });
+        });*/
     }
 
     /**

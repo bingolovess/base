@@ -134,18 +134,29 @@
     </declare-styleable>
     <!--自定义ui item 属性-->
     <declare-styleable name="default_ui">
-        <attr name="backgroud" format="reference" />
         <attr name="type_name" format="string" />
         <attr name="type_value" format="string" />
         <attr name="left_image" format="reference" />
         <attr name="right_image" format="reference" />
         <attr name="bottom_line" format="boolean" />
         <attr name="default_switch" format="boolean" />
+        <attr name="default_normal" format="reference|color" />
+        <attr name="default_select" format="reference|color" />
     </declare-styleable>
     <!--slideLayout-->
     <declare-styleable name="SlideLayout">
         <attr name="sl_slideSlop" format="dimension" />
         <attr name="sl_duration" format="integer" />
         <attr name="sl_enable" format="boolean" />
+    </declare-styleable>
+    <!--SpringView 可回弹效果组件-->
+    <declare-styleable name="SpringView">
+        <attr name="lib_pub_spring_enable" format="boolean" />
+        <attr name="lib_pub_spring_gravity">
+            <flag name="top" value="1" />
+            <flag name="bottom" value="2" />
+            <flag name="left" value="4" />
+            <flag name="right" value="8" />
+        </attr>
     </declare-styleable>
 </resources>
