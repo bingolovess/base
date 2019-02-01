@@ -17,6 +17,8 @@
     <dimen name="lib_pub_dimen_text_mini">13dp</dimen>
 
     <dimen name="lib_pub_dimen_btn_corner">4dp</dimen>
+    <!--loadingView-->
+    <dimen name="lib_pub_loading">12sp</dimen>
     <!--CellView-->
     <dimen name="default_ui_type_text">16dp</dimen>
     <dimen name="default_ui_value_text">14dp</dimen>

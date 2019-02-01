@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/dialog/dialog.iml" filepath="$PROJECT_DIR$/dialog/dialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/floatview/floatview.iml" filepath="$PROJECT_DIR$/floatview/floatview.iml" />
       <module fileurl="file://$PROJECT_DIR$/gesture/gesture.iml" filepath="$PROJECT_DIR$/gesture/gesture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multitab/multitab.iml" filepath="$PROJECT_DIR$/multitab/multitab.iml" />
       <module fileurl="file://$PROJECT_DIR$/notifyutil/notifyutil.iml" filepath="$PROJECT_DIR$/notifyutil/notifyutil.iml" />
       <module fileurl="file://$PROJECT_DIR$/refresh-layout/refresh-layout.iml" filepath="$PROJECT_DIR$/refresh-layout/refresh-layout.iml" />
       <module fileurl="file://$PROJECT_DIR$/tablayout/tablayout.iml" filepath="$PROJECT_DIR$/tablayout/tablayout.iml" />

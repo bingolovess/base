@@ -1,6 +1,10 @@
 package com.bingo;
 
 import android.app.Application;
+import android.content.ComponentCallbacks;
+import android.content.res.Configuration;
+import android.support.annotation.NonNull;
+import android.util.DisplayMetrics;
 
 import com.bingo.utils.AppConfig;
 
@@ -11,11 +15,13 @@ import com.bingo.utils.AppConfig;
 
 public class App extends Application {
     private static App app;
-    public static App get(){
-        return  app;
+
+    public static App get() {
+        return app;
     }
     //app启动的开始时间
     public long startTime;
+
     @Override
     public void onCreate() {
         super.onCreate();

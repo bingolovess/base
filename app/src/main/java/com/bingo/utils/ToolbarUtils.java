@@ -17,18 +17,17 @@ import com.bingo.study.R;
  */
 
 public class ToolbarUtils {
-    private static ToolbarUtils utils;
-
-    private ToolbarUtils() {
-    }
-
     private Toolbar mToolbar;
     private LinearLayout mLeftLayout, mRightLayout;
     private ImageView mLeftImageView, mRightImageView;
     private TextView mLeftTextView, mRightTextView, mTitle;
 
-    public static ToolbarUtils create() {
-        return new ToolbarUtils();
+    public ToolbarUtils(Activity activity) {
+        init(activity);
+    }
+
+    public ToolbarUtils(View view) {
+        init(view);
     }
 
     /**
@@ -36,7 +35,7 @@ public class ToolbarUtils {
      *
      * @param activity
      */
-    public ToolbarUtils init(Activity activity) {
+    private ToolbarUtils init(Activity activity) {
         if (activity != null) {
             mToolbar = activity.findViewById(R.id.toolbar);
             if (mToolbar != null) {
@@ -57,7 +56,7 @@ public class ToolbarUtils {
      *
      * @param view
      */
-    public ToolbarUtils init(View view) {
+    private ToolbarUtils init(View view) {
         if (view != null) {
             mToolbar = view.findViewById(R.id.toolbar);
             if (mToolbar != null) {

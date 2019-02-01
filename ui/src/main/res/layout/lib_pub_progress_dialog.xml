@@ -12,7 +12,17 @@
     <com.bingo.ui.LoadingView
         android:id="@+id/loadingView"
         android:layout_width="36dp"
-        android:layout_height="36dp" />
+        android:layout_height="36dp"
+        android:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:indeterminateDrawable="@drawable/lib_pub_progress"
+        android:indeterminateDuration="500"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tips"
@@ -20,5 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/lib_pub_loading"
-        android:textColor="@color/lib_pub_loading" />
+        android:textColor="@color/lib_pub_loading_tips"
+        android:textSize="@dimen/lib_pub_loading" />
 </LinearLayout>

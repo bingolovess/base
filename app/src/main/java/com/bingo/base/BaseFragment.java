@@ -47,7 +47,7 @@ public abstract class BaseFragment extends Fragment {
         initLayoutId();
         mRootView = inflater.inflate(initLayoutId(), container, false);
         mUnbinder = ButterKnife.bind(this, mRootView);
-        mToolbarUtils = ToolbarUtils.create().init(mRootView);
+        mToolbarUtils = new ToolbarUtils(mRootView);
         initData();
         return mRootView;
     }

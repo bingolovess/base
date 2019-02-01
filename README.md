@@ -661,3 +661,88 @@ SegementView
                 );
     }
 ```
+#### 15、 仿爱奇艺首页轮播组件
+
+![](img/banner_aqiyi.gif)
+
+~~~
+	<com.bingo.ui.banner.LoopViewPager
+        android:id="@+id/looviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+~~~
+
+~~~
+代码：
+ 	    LoopViewPager looviewpager = (LoopViewPager) findViewById(R.id.looviewpager);
+        looviewpager.setAdapter(new MyAdapter());
+        looviewpager.setOffscreenPageLimit(3);
+        looviewpager.setPageTransformer(true, new ViewPager.PageTransformer() {
+            float scale = 0.9f;
+            @Override
+            public void transformPage(View page, float position) {
+                if (position >= 0 && position <= 1) {
+                    page.setScaleY(scale + (1 - scale) * (1 - position));
+                } else if (position > -1 && position < 0) {
+                    page.setScaleY(1 + (1 - scale) * position);
+                } else {
+                    page.setScaleY(scale);
+                }
+            }
+        });
+        looviewpager.autoLoop(true);
+        
+ 适配器示例：
+ class MyAdapter extends PagerAdapter {
+
+        @Override
+        public int getCount() {
+            return resIds.length;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = View.inflate(context, R.layout.item_viewpager, null);
+            RoundImageView itemImage = (RoundImageView) view.findViewById(R.id.item_image);
+            itemImage.setImageResource(resIds[position]);
+            container.addView(view);
+            return view;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View) object);
+        }
+    }
+        
+~~~
+
+#### 16 ScrollTipsView
+
+![](img/scrollTipView.gif)
+
+~~~
+	<com.bingo.ui.ScrollTipView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        
+   ScrollTipView scrollTipView = findViewById(R.id.scrollView);
+        List<View> list = new ArrayList<>();
+        TextView textView = new TextView(getContext());
+        TextView textView1 = new TextView(getContext());
+        textView.setText("Tip");
+        textView1.setText("Tip1");
+        textView.setTextColor(getResources().getColor(R.color.colorAccent));
+        list.add(textView);
+        list.add(textView1);
+        scrollTipView.update(list);      
+~~~
+
